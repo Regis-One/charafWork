@@ -1,0 +1,17 @@
+:root {
+    --primaryBackgroundColor: white; 
+    --fontColorParagraphs: black; 
+
+}
+
+body {
+    background-color: var(--primaryBackgroundColor);
+    color: var(--fontColorParagraphs);
+    margin: 40px;
+}
+
+
+
+footer{
+    margin-top: 80px;
+}
