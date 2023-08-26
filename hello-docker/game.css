@@ -37,6 +37,20 @@ button {
     color: white;
 }
 #window {
+    margin-top: 4em;
+    padding: 2em;
     background-color: black;
     color: white;
+}
+
+.options {
+    margin: 0.2em;
+    padding: 0.1em;
+    border: 0.2px black solid;
+    background-color: black; 
+    color: white;
+
+}
+.options:hover {
+    background-color: red;
 }
