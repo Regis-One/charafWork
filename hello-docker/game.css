@@ -1,0 +1,42 @@
+body {
+    background-color: blue;
+}
+
+#container {
+    background-color: gray;
+    height: 200px;
+    width: 40%;
+    box-shadow: 8px 5px black;
+    border: 2px black solid;
+}
+
+.stats {
+   flex: auto;
+   text-align: center;
+   border: solid black 2px;
+    display: flex;
+}
+#health {
+    flex: auto;
+    justify-content: space-between;
+}
+#XP {
+    flex: auto;
+    justify-content: space-between;   
+}
+
+#gold {
+    flex: auto;
+    justify-content: space-between;
+}
+
+
+button {
+    flex: auto;
+    background-color: red;
+    color: white;
+}
+#window {
+    background-color: black;
+    color: white;
+}
