@@ -1,12 +1,12 @@
 body {
-    background-color: blue;
+    background-color: rgb(8, 59, 121);
 }
 
 #container {
     background-color: gray;
     height: 200px;
     width: 40%;
-    box-shadow: 8px 5px black;
+    box-shadow: 8px 5px silver;
     border: 2px black solid;
 }
 
@@ -32,8 +32,9 @@ body {
 
 
 button {
+    margin: 0;
     flex: auto;
-    background-color: red;
+    background-color: rgb(48, 42, 42);
     color: white;
 }
 #window {
