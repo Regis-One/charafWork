@@ -68,23 +68,30 @@ function startGame() {
         currentLocationIndex = 0;
         updateLocation(locations[currentLocationIndex]);
         windowText.innerHTML = "Back to home screen.";
+        windowPlace.style.backgroundColor = "black";
     }
 
     function stay() {
         mainSquare();
         windowText.innerHTML = "You are staying.";
+        windowPlace.style.backgroundColor = "black";
+
     }
 
     function enterCave() {
         currentLocationIndex = 1;
         updateLocation(locations[currentLocationIndex]);
         windowText.innerHTML = "You are inside the cave.";
+        windowPlace.style.backgroundColor = "black";
+
     }
 
     function goToStore() {
         currentLocationIndex = 2;
         updateLocation(locations[currentLocationIndex]);
         windowText.innerHTML = "You are inside the store.";
+        windowPlace.style.backgroundColor = "black";
+
     }
 
     function fight() {
@@ -108,6 +115,7 @@ function startGame() {
 
     function flee() {
         windowText.innerHTML = "You are fleeing the scene";
+        windowPlace.style.backgroundColor = "gray";
     }
 
     function createEnemy() {
@@ -153,7 +161,7 @@ let weaponIndex = 0;
     if (goldValue >= weapons[weaponIndex].price) {
         goldValue-= weapons[weaponIndex].price;
         gold.innerHTML = goldValue;
-        currentWeapon.innerHTML = weapons[weaponIndex].name;
+        currentWeapon.innerHTML += weapons[weaponIndex].name;
         }
         else {
             windowText.innerHTML = "You don't have enough coins";
