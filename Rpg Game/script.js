@@ -35,6 +35,11 @@ function startGame() {
             name: "weaponery",
             "button text": ["Buy a hammer", "Buy a sword", "Leave weaponery"],
             "button functions": [buyHammer, buySword, mainSquare],
+        },
+        {
+            name: "confirmWeapon",
+            "button text": ["Yes", "No", "Go back"],
+            "button functions": [confirmBuying, goToStore, mainSquare]
         }
        
     ];
@@ -128,32 +133,34 @@ function startGame() {
         currentLocationIndex = 3;
         updateLocation(locations[currentLocationIndex])
     }
+let weaponIndex = 0;
   function buyHammer(){
+    weaponIndex = 0;
     windowText.innerHTML = "The price of the item is "  + weapons[0].price + " gold";   
-    if (goldValue >= weapons[0].price) {
-        goldValue -= weapons[0].price ;
-        gold.innerHTML = goldValue;
-        currentWeapon.innerHTML = "🔨"
-    }
-    else {
-        windowText.innerHTML = "You don't have enough coins"
-    }
-
+    currentLocationIndex = 4;
+    updateLocation(locations[currentLocationIndex]);
+    return weaponIndex;
   }
   function buySword(){
+    weaponIndex = 1;
     windowText.innerHTML = "The price of the item is "  + weapons[1].price + " gold";   
-    if (goldValue >= weapons[1].price) {
-    goldValue-= weapons[1].price;
-    gold.innerHTML = goldValue;
-    currentWeapon.innerHTML = "⚔️"
-    
-    }
-    else {
-        windowText.innerHTML = "You don't have enough coins";
-    }
+    currentLocationIndex = 4;
+    updateLocation(locations[currentLocationIndex]);
+    return weaponIndex;
   }
  
+   function confirmBuying() {
+    if (goldValue >= weapons[weaponIndex].price) {
+        goldValue-= weapons[weaponIndex].price;
+        gold.innerHTML = goldValue;
+        currentWeapon.innerHTML = weapons[weaponIndex].name;
+        }
+        else {
+            windowText.innerHTML = "You don't have enough coins";
+        }
 
+   }
+ 
     function gameOver() {
         game.remove();
         // Add game over logic here
@@ -184,12 +191,13 @@ function startGame() {
 }
 let weapons = [
 {
-    name: "hammer",
+    name: "🔨",
     power: 50,
     price: 50,
+    
 },
  {
-    name: "sword",
+    name: "⚔️",
     power: 10, 
     price: 10,
  },
