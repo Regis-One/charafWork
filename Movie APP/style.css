@@ -57,12 +57,13 @@ input {
     border-radius: 19px;
     padding: 20px;
     text-align: center;
-    background-color: rgb(31, 5, 5);
+    background-color: rgb(56, 4, 4);
     width: 350px;
     height: 100%;
 }
 img {
     width: 50%;
     margin: auto;
+    border: 2px solid black;
 
 }
