@@ -1,0 +1,188 @@
+"country","gdpPC","prod19","gdpHW","gdpPPE"
+"United States",69287.5,73.7,79.6,139306.5
+"United Arab Emirates",66766.1,,,
+"Netherlands",63766.9,69.78,77,108309.4
+"Sweden",59324,65.54,79.1,112579
+"Belgium",58930.9,66.27,86.8,125219
+"Austria",58427.5,65.15,79.4,111200.1
+"Germany",57927.6,68.85,76.7,101584
+"Australia",55807.4,61.44,65,109871.6
+"Canada",52085,57.24,61.2,100564.2
+"France",50728.7,68.63,79.7,112175.4
+"United Kingdom",49675.3,54.35,70.3,96065.3
+"Saudi Arabia",49551.3,,,
+"South Korea",46918.5,40.77,45.8,87136.2
+"Italy",45936,56.09,64.3,99941.8
+"Czech Republic",44260.9,40.93,48.9,83352.6
+"Israel",43721.6,40.87,48.8,86929.2
+"Japan",42940.4,42.56,50,77867.4
+"Spain",40775.3,56.31,58.3,91582.6
+"Poland",37502.6,37.08,44.9,79246
+"Hungary",36752.5,34.83,42.9,69059.8
+"Portugal",35888.2,35.15,44.9,72396.1
+"Romania",35414,34.72,,
+"Russia",32803.4,29.55,33,61858.4
+"Greece",31295.1,33.03,37.4,64548.2
+"Turkey",30472.4,43.69,49.6,85938.3
+"Malaysia",29617.3,24.75,,
+"Chile",29104.1,28.42,35.3,64378.1
+"Kazakhstan",28600,,,
+"Argentina",23627.4,29.43,,
+"Belarus",21698.6,,,
+"Dominican Republic",20769.2,17.53,,
+"Mexico",20036.5,20.34,22.2,47221.1
+"China",19338.2,11.69,,32337.9
+"Thailand",19209.5,15.17,,
+"Colombia",16893.8,16.96,19.5,38286
+"Brazil",16056,19.2,,
+"Azerbaijan",15842.9,,,
+"Iran",15791.2,,,
+"South Africa",14420.2,17.97,,47380.5
+"Ukraine",14219.8,,,
+"Sri Lanka",14127.2,18.02,,
+"Peru",13895.3,11.01,,
+"Egypt",13316.2,,,
+"Indonesia",12904.3,11.84,,25703.9
+"Algeria",12037.5,,,
+"Ecuador",11661.2,15.26,,
+"Tunisia",11594.7,,,
+"Vietnam",11553.1,6.74,,
+"Jordan",10952,,,
+"Iraq",10408.9,,,
+"Guatemala",9769.2,,,
+"Philippines",9119.7,9.93,,
+"Bolivia",9030.4,,,
+"Uzbekistan",8497.4,,,
+"Morocco",8143.5,,,
+"India",7333.5,8.68,,18731.5
+"Bangladesh",6613,4.79,,
+"Angola",6581,,,
+"Honduras",6252.6,,,
+"Ghana",6178.3,,,
+"Ivory Coast",5939.8,,,
+"Pakistan",5877.6,8.77,,
+"Nigeria",5459.2,,,
+"Kenya",5023.5,,,
+"Cambodia",4683,3.43,,
+"Papua New Guinea",4445.4,,,
+"Myanmar",4344.9,5.15,,
+"Tajikistan",4288.4,,,
+"Nepal",4260.8,,,
+"Sudan",4217.2,,,
+"Cameroon",4064.5,,,
+"Benin",3789.3,,,
+"Senegal",3768.7,,,
+"Zambia",3623.9,,,
+"Haiti",3127.4,,,
+"Tanzania",2932.6,,,
+"Guinea",2878.6,,,
+"Ethiopia",2599.7,,,
+"Rwanda",2494.1,,,
+"Burkina Faso",2461.9,,,
+"Mali",2447.3,,,
+"Zimbabwe",2444.5,,,
+"Uganda",2397.8,,,
+"Togo",2380.2,,,
+"Afghanistan",2078.5,,,
+"Malawi",1658.3,,,
+"Madagascar",1635.4,,,
+"Chad",1590.6,,,
+"Mozambique",1342.3,,,
+"Niger",1309.8,,,
+"Taiwan",,46.01,",",
+"Luxembourg",134753.8,80.33,110.8,157337.6
+"Singapore",116486.5,54.55,,
+"Ireland",106455.8,125.09,119.1,207604.4
+"Qatar",93521.4,,,
+"Bermuda",85192.3,,,
+"Norway",79201.2,100.33,85.6,120700.7
+"Switzerland",77324.1,82.92,81.4,122047.6
+"Macau",73802.2,,,
+"Cayman Islands",72481,,,
+"Brunei",66619.9,,,
+"Hong Kong",65972.6,49.12,,
+"Denmark",64651.2,76,87.7,117783.9
+"San Marino",59571.9,,,
+"Iceland",57646.4,64.24,70.4,101911.5
+"Finland",55006.6,58.44,70.1,107351.9
+"Malta",47714.5,40.63,,
+"Kuwait",47303.1,,,
+"New Zealand",46419.5,44.55,48.3,84032.6
+"Bahrain",45411.1,,,
+"Slovenia",43624.7,42.5,52.4,80324.1
+"Lithuania",42665.3,34.45,49.8,79504.9
+"Cyprus",42556.1,42.39,,
+"Estonia",42191.5,37.1,47.4,78458.2
+"Latvia",34468.6,33.54,43.1,68035
+"Puerto Rico",34333.7,,,
+"Bahamas",34107.8,,,
+"Croatia",33800.6,32.26,,
+"Slovakia",33010.3,35.83,45.4,71348.2
+"Panama",31680.2,,,
+"Aruba",31182.8,,,
+"Seychelles",29837.5,,,
+"Trinidad and Tobago",26868.1,,,
+"Bulgaria",26705.4,26.55,,
+"Saint Kitts and Nevis",26256.3,,,
+"Uruguay",24625.5,28.38,,
+"Guyana",24493.7,,,
+"Costa Rica",23387.1,20.02,30.7,59241.1
+"Libya",23356.6,,,
+"Montenegro",22795.4,,,
+"Mauritius",22240.1,,,
+"Serbia",21432.4,,,
+"Curacao",20681.2,,,
+"Antigua and Barbuda",19837.7,,,
+"Maldives",18232.2,,,
+"Equatorial Guinea",18127.2,,,
+"North Macedonia",17918.1,,,
+"Botswana",17603.7,,,
+"Georgia",16997.1,,,
+"Bosnia and Herzegovina",16846.5,,,
+"Grenada",16680.4,,,
+"Suriname",16675.6,,,
+"Palau",16318.7,,,
+"Albania",15646,,,
+"Moldova",15637.2,,,
+"Gabon",15597.5,,,
+"Nauru",15102.7,,,
+"Barbados",14816.9,,,
+"Armenia",14630.2,,,
+"Saint Lucia",14051.4,,,
+"Saint Vincent and the Grenadines",14021.4,,,
+"Paraguay",13975.9,,,
+"Mongolia",12862.7,,,
+"Fiji",12059.8,,,
+"Dominica",11973.9,,,
+"Bhutan",11129.3,,,
+"Lebanon",10691.2,,,
+"Jamaica",10025.9,,,
+"Eswatini",9815.8,,,
+"Namibia",9805.2,,,
+"El Salvador",9668.7,,,
+"Laos",8674,,,
+"Cape Verde",7028,,,
+"Belize",6912.5,,,
+"Samoa",6420.4,,,
+"Nicaragua",6331.7,,,
+"Palestine",6199.5,,,
+"Mauritania",5591.8,,,
+"Kyrgyzstan",5287.8,,,
+"Tuvalu",5082.4,,,
+"Sao Tome and Principe",4445.9,,,
+"Timor-Leste",4417.6,,,
+"Marshall Islands",4181.5,,,
+"Micronesia",3544.2,,,
+"Comoros",3284.4,,,
+"Vanuatu",3105.1,,,
+"Lesotho",2682.2,,,
+"Solomon Islands",2656.1,,,
+"Gambia",2433.9,,,
+"Kiribati",2171.9,,,
+"Guinea-Bissau",2057.1,,,
+"Sierra Leone",1816.2,,,
+"Liberia",1552.8,,,
+"Somalia",1302.5,,,
+"DR Congo",1218.8,,,
+"Central African Republic",1020.5,,,
+"Burundi",793.2,,,
