@@ -45,7 +45,11 @@ def download_video():
       
 
 app = tk.Tk()
+<<<<<<< HEAD
 app.title("Youtube Downloader")
+=======
+app.title("YouTube downloader")
+>>>>>>> b6c65b344b91e319c588cc1375eb7ba60cb4c623
 canvas = ttk.Frame(app, padding="20")
 canvas.grid(row = 0, column = 0)
 link_label = ttk.Label(canvas, text ="Link: ")
