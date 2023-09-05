@@ -43,15 +43,9 @@ def download_video():
         download_progress.insert(tk.END, success_message)
 
       
-        
-
-
-
-
-
 
 app = tk.Tk()
-app.title("prayer")
+app.title("Youtube Downloader")
 canvas = ttk.Frame(app, padding="20")
 canvas.grid(row = 0, column = 0)
 link_label = ttk.Label(canvas, text ="Link: ")
