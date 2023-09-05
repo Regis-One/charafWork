@@ -16,13 +16,13 @@ def progress_function(stream, chunk, bytes_remaining):
 
 youtubeObject = YouTube(link, on_progress_callback=progress_function)
 videoTitle = input("Title of the video: ")
-output_path = "C:\Users\16132\Downloads"
+output_path = "C:\\Users\\16132\\Downloads"
 youtubeObject_video = youtubeObject.streams.get_highest_resolution()
 try:
         print(f"Downloading '{videoTitle}'...")
 
         # Using the pytube_cli to download the video with progress bar
-        youtubeObject_video.download(filename=videoTitle + ".mp4", output_path= output_path)
+        youtubeObject_video.download(filename=videoTitle + ".mp3", output_path= output_path)
 
         print(f"Download of '{videoTitle}' is completed successfully")
 

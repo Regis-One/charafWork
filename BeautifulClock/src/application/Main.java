@@ -1,15 +1,16 @@
 package application;
 
-// Import necessary JavaFX libraries
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.stage.Stage;
+import javax.print.attribute.standard.Media;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+// Import necessary JavaFX libraries
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -17,17 +18,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+
 
 public class Main extends Application {
     public static void main(String[] args) {
         // Launch the JavaFX application
         launch(args);
+       
+        
     }
 
 	/*
@@ -41,8 +44,9 @@ public class Main extends Application {
 	 */
     @Override
     public void start(Stage stage) {
+    	
         // Set the title of the application window
-        stage.setTitle("Clock Demo");
+        stage.setTitle("Clock");
 
         // Create a root pane to hold the clock elements
         Pane root = new Pane();
@@ -60,6 +64,7 @@ public class Main extends Application {
         stage.getIcons().add(icon);
 
         
+      
         WorldClock clock = new WorldClock(-4);
         int dotIndex = clock.getClass().getName().indexOf(".");
         String clockName = clock.getClass().getName().substring(dotIndex+1);
@@ -91,7 +96,7 @@ public class Main extends Application {
 
 	     Rectangle hoursHand = new Rectangle(3, 50);
         hoursHand.setStrokeWidth(3);
-        hoursHand.setStroke(Color.BLUE);
+        hoursHand.setStroke(Color.GREEN);
         
         Translate translateHours = new Translate(centerX - 30, centerY - 50); 
         hoursHand.getTransforms().add(translateHours);
@@ -104,7 +109,7 @@ public class Main extends Application {
         
         Rectangle minutesHand = new Rectangle(2, 70);
         minutesHand.setStrokeWidth(2);
-        minutesHand.setStroke(Color.RED);
+        minutesHand.setStroke(Color.BLUE);
         
         Translate translateMinutes = new Translate(centerX - 30, centerY - 50); 
         minutesHand.getTransforms().add(translateMinutes);
@@ -131,47 +136,47 @@ public class Main extends Application {
         Circle watch = new Circle(centerX - 30, centerY - 50, 125);
         watch.setFill(Color.TRANSPARENT);
         watch.setStrokeWidth(3);
-        watch.setStroke(Color.WHITE);
+        watch.setStroke(Color.RED);
 
   
         
-      
+        
 
         // Add all clock elements to the root pane
         root.getChildren().addAll(watchLabel, hoursHand, minutesHand, secondsHand, watch, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve);
 
+       
         // Set the scene, configure the stage, and display it
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
         // Create a timeline for the clock animation
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            // Create a WorldClock object with a time offset of -4 hours (change as needed)
-           
+        Timeline timeline = new Timeline(
+        	    new KeyFrame(Duration.seconds(1), event -> {
+        	        // Animation updates (rotate clock hands)
+        	        Rotate continousRotateSeconds = new Rotate();
+        	        Rotate continousRotateMinutes = new Rotate();
+        	        Rotate continousRotateHours = new Rotate();
+        	        continousRotateSeconds.setAngle(3);
+        	        secondsHand.getTransforms().add(continousRotateSeconds);
+        	        continousRotateMinutes.setAngle(0.1);
+        	        minutesHand.getTransforms().add(continousRotateMinutes);
+        	        continousRotateHours.setAngle(0.0083);
+        	        hoursHand.getTransforms().add(continousRotateHours);
+        	        
+        	        AudioPlayer.playAudio();
+        	    })
+        	    
+        	);
 
-            // Rotate the seconds hand by 10 degrees on each tick
-            Rotate continousRotateSeconds = new Rotate();
-            Rotate continousRotateMinutes = new Rotate();
-            Rotate continousRotateHours = new Rotate();
-            continousRotateSeconds.setAngle(3);
-            secondsHand.getTransforms().add(continousRotateSeconds);
-            
-            continousRotateMinutes.setAngle(0.1);
-            minutesHand.getTransforms().add(continousRotateMinutes);
-            
-            continousRotateHours.setAngle(0.0083);
-            hoursHand.getTransforms().add(continousRotateHours);
-            
-            
- 
-       
-        }));
+        	// Set the timeline to run indefinitely
+        	timeline.setCycleCount(Timeline.INDEFINITE);
 
-        // Set the timeline to run indefinitely
-        timeline.setCycleCount(Timeline.INDEFINITE);
+        	// Start the timeline animation
+        	timeline.play();
 
-        // Start the timeline animation
-        timeline.play();
+        
     }
+    
 }
