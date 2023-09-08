@@ -1,0 +1,99 @@
+body {
+    background-color: azure;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 4%;
+    margin-right: 4%;
+    background-image: url("Morocco.png");
+    background-size: cover;
+    text-align: left;
+}
+
+h1{
+    font-size: 3rem;
+    color: rgb(35, 162, 173);
+
+}
+
+h2{
+    font-size: 2rem;
+    color: rgb(15, 11, 67);
+    text-align: center;
+}
+.welcome {
+    font-size: 3rem;
+    text-align: center;
+    color: red;
+    animation: change 2s infinite ease-out;
+}
+    
+@keyframes change{
+    0%   { opacity: 0.5; ;
+    }
+      100% {color: yellowgreen; opacity: 1; font-style:oblique ;
+        
+    }
+        }
+
+
+header > img{
+    opacity: 0.9;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation:  rotate 2s ease-in-out infinite;
+    
+}
+article > img {
+    flex-wrap: wrap;
+    border:rgb(15, 11, 67) solid 2px;
+    animation: myanimation 2s ease-in;
+}
+
+@keyframes myanimation {
+    0%   {top: 0px;  opacity: 0.2;}
+  100% {top: 100%; opacity: 1;}
+    }
+
+@keyframes rotate {
+    0% {
+          transform: rotate(0deg);
+        }
+    100% {
+          transform: rotate(360deg);
+        }
+      }
+
+
+li > a, li {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-left: 5rem;
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    
+
+}
+a:hover{
+    color: green; 
+    background-color: red;
+    text-align: center;
+}
+section{
+    display: flex;
+}
+
+article {
+    flex: 1;
+}
+footer {
+    display: flex;
+    box-shadow:  2px 2px 2px 2px royalblue;
+}
+footer  div {
+    flex: 1;
+   
+
+}
