@@ -55,31 +55,38 @@ function hardMode(){
 
 function compareGuess() {
     const userGuess = Number(document.getElementById('inputBox').value);
-    userGuesses.push(" "+userGuess);
-    document.getElementById("attempts").innerHTML = userGuesses.length;
-    document.getElementById("guesses").innerHTML = userGuesses;
-if (document.getElementById("attempts").innerHTML < maxGuesses)
-    if (userGuess > computerGuess) {
-        high = userGuess;
-        document.getElementById("textOutput").innerHTML = "Your guess is too high!"
-        document.getElementById("inputBox").value= "";
-        
-    }
-    else if (userGuess <  computerGuess) {
-        low = userGuess;
-        document.getElementById("textOutput").innerHTML = "Your guess is too low!"
-        document.getElementById("inputBox").value= "";
-        
-    }
-    else  {
-        document.getElementById("textOutput").innerHTML = "Correct!"
+    if (userGuess < high && userGuess > low) {
+        userGuesses.push(" "+userGuess);
+        document.getElementById("attempts").innerHTML = userGuesses.length;
+        document.getElementById("guesses").innerHTML = userGuesses;
+        if (document.getElementById("attempts").innerHTML < maxGuesses)
+        if (userGuess > computerGuess) {
+            high = userGuess;
+            document.getElementById("textOutput").innerHTML = "Your guess is too high!"
+            document.getElementById("inputBox").value= "";
+            
+        }
+        else if (userGuess <  computerGuess) {
+            low = userGuess;
+            document.getElementById("textOutput").innerHTML = "Your guess is too low!"
+            document.getElementById("inputBox").value= "";
+            
+        }
+        else  {
+            document.getElementById("textOutput").innerHTML = "Correct!"
+            gameEnded();
+            
+        }
+    else
+        {document.getElementById("textOutput").innerHTML = "Game Over!";
         gameEnded();
-        
     }
-else
-    {document.getElementById("textOutput").innerHTML = "Game Over!";
-    gameEnded();
-}
-updateRange();    
+    updateRange();    
+
+    }
+    else {
+        document.getElementById("textOutput").innerHTML = "You guess is not within limits...";
+    }
+   
 
 }
