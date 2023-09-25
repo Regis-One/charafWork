@@ -2,34 +2,18 @@ import React from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import Card from "./components/Card"
+import Places from "./components/Places"
 function App() {
+  const cardElements = Places.map(place => {
+    return <Card country = {place.country} rating = {place.rating} img = {place.img} 
+            number_reviews = {place.number_reviews} price = {place.price} open_spots = {place.open_spots}/>
+  })
   return (
     <div >
            <Navbar />
            <Hero/>
-    <div className="card">
-      <Card
-          img = "./snow.jpg"
-          rating = "5"
-          number_reviews = "(17)"
-          country = "CAN"
-          price = "$2500 /person"
-            />
-      <Card
-          rating = "3"
-          number_reviews = "(25)"
-          country = "MAR"
-          img = "./desert.jpg"
-
-            />
-      <Card
-          img = "./forest.jpg"
-          rating = "5"
-          number_reviews = "(12)"
-          country = "DEU"
-          price = "$1750 /person"
-            />
-
+    <div className="cards_list">
+          {cardElements}
     </div>
   
     </div>

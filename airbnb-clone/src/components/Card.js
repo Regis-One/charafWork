@@ -3,7 +3,8 @@ import React from "react";
 function Card(props) {
  
   return (
-    <div>
+    <div className="card">
+      {props.open_spots === 0 && <div className="card_badge"> Sold out </div>}
       <div>
         {props.img ? (
           <img className="card_image" src={props.img} alt="Card" />
