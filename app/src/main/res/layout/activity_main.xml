@@ -13,11 +13,17 @@
         android:text="@string/hello_message"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="38dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.085" />
+=======
+
+        />
+>>>>>>> 5eb5d04aea52ac8efe51db6922933a3eea35a0f7
 
 
     <TextView
