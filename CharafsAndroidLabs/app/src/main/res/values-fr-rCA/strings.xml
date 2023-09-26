@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">Charaf\'s Android Labs</string>
     <string name="hello_message">Salut tout le monde!</string>
+    <string name="name_question"> Quel est ton nom ? </string>
     <string name="button_message">Je suis un boutton</string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.data.MainViewModel;
 import com.example.charafsandroidlabs.R;
@@ -25,15 +26,51 @@ public class MainActivity extends AppCompatActivity {
         variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(variableBinding.getRoot());
 
-        model.editString.observe(this, s -> {
-            variableBinding.helloMessage.setText("Hello " + s);
+
+
+        model.isChosen.observe(this, selected -> {
+            variableBinding.checkBox.setChecked(selected);
+            variableBinding.radioButton.setChecked(selected);
+            variableBinding.mySwitch.setChecked(selected);
+            CharSequence text = "The value is now: " + model.isChosen.getValue();
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(this /* MyActivity */, text, duration);
+            toast.show();
         });
 
+
+        model.editString.observe(this, name -> {
+            variableBinding.helloMessage.setText("Hello " + name);
+        });
+
+        variableBinding.checkBox.setOnCheckedChangeListener((btn, isChecked) -> {
+            model.isChosen.postValue(isChecked);
+        });
+        variableBinding.radioButton.setOnCheckedChangeListener((btn, isChecked) -> {
+            model.isChosen.postValue(isChecked);
+        });
+        variableBinding.mySwitch.setOnCheckedChangeListener((btn, isChecked) -> {
+            model.isChosen.postValue(isChecked);
+        });
 
         variableBinding.Btn.setOnClickListener(v -> {
             model.editString.postValue(variableBinding.textInput.getText().toString());
             variableBinding.nameQuestion.setVisibility(View.GONE);
         });
+
+        variableBinding.myImageButton.setOnClickListener( img -> {
+            CharSequence textImage = "Picture's width: " + img.getWidth() + " Picture's height: " + img.getHeight();
+            int durationTextImage = Toast.LENGTH_SHORT;
+
+            Toast.makeText(this /* MyActivity */, textImage, Toast.LENGTH_SHORT).show();
+        });
+
+        variableBinding.myImageView.setOnClickListener( img -> {
+            Toast.makeText(this, "Image Clicked", Toast.LENGTH_SHORT).show();
+        });
+
+
 
     }
 }
