@@ -1,0 +1,13 @@
+package com.data;
+
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+
+import com.ui.ChatMessage;
+
+import java.util.ArrayList;
+
+public class ChatRoomViewModel extends ViewModel {
+    public MutableLiveData<ArrayList<ChatMessage>> messages = new MutableLiveData<>();
+
+}
