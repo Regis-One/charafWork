@@ -42,7 +42,7 @@ public class ChatRoom extends AppCompatActivity {
 
         messages = chatModel.messages.getValue();
 
-        MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, "database-name").build();
+        MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, "MessageDB").build();
         ChatMessageDAO mDAO = db.cmDAO();
 
         if (messages == null) {
