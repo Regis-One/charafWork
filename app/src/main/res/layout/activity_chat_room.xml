@@ -32,7 +32,7 @@
         app:strokeColor="#3F51B5" />
 
     <EditText
-        android:id="@+id/textInput"
+        android:id="@+id/messageEntered"
         android:layout_width="173dp"
         android:layout_height="58dp"
         android:layout_marginStart="16dp"
@@ -50,7 +50,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
         android:text="Receive"
-        app:layout_constraintStart_toEndOf="@+id/textInput"
+        app:layout_constraintStart_toEndOf="@+id/messageEntered"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
 

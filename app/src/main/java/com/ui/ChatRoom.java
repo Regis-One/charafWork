@@ -11,6 +11,7 @@ import androidx.room.Room;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.data.ChatRoomViewModel;
 import com.example.charafsandroidlabs.databinding.ActivityChatRoomBinding;
@@ -30,6 +31,11 @@ public class ChatRoom extends AppCompatActivity {
     private ChatRoomViewModel chatModel;
     private ArrayList<ChatMessage> messages;
     private RecyclerView.Adapter myAdapter;
+    private ChatMessageDAO mDAO;
+
+    private String TextMessageNotify;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,50 +43,51 @@ public class ChatRoom extends AppCompatActivity {
         binding = ActivityChatRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         chatModel = new ViewModelProvider(this).get(ChatRoomViewModel.class);
 
         messages = chatModel.messages.getValue();
 
         MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, "MessageDB").build();
-        ChatMessageDAO mDAO = db.cmDAO();
+        mDAO = db.cmDAO();
 
         if (messages == null) {
             chatModel.messages.setValue(messages = new ArrayList<>());
-
             Executor thread = Executors.newSingleThreadExecutor();
             thread.execute(() -> {
                 messages.addAll(mDAO.getAllMessages());
-
                 runOnUiThread(() -> binding.recyclerView.setAdapter(myAdapter));
-                Log.d("ChatRoom", "Number of messages: " + messages.size());
             });
         }
 
         binding.sendButton.setOnClickListener(click -> {
-            String messageText = binding.textInput.getText().toString();
-
+            TextMessageNotify = binding.messageEntered.getText().toString();
+            String messageText = binding.messageEntered.getText().toString();
             SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
-
             ChatMessage chatMessage = new ChatMessage(messageText, currentDateandTime, true);
             messages.add(chatMessage);
 
-            myAdapter.notifyItemInserted(messages.size()-1);
-            binding.textInput.setText("");
+            binding.messageEntered.setText("");
+            Executor thread = Executors.newSingleThreadExecutor();
+            thread.execute(() -> {
+                mDAO.insertMessage(chatMessage);
+            });
+           myAdapter.notifyItemInserted(messages.size() - 1);
         });
 
         binding.receiveButton.setOnClickListener(click -> {
-            String messageText = binding.textInput.getText().toString();
-
+            TextMessageNotify = binding.messageEntered.getText().toString();
+            String messageText = binding.messageEntered.getText().toString();
             SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
-
             ChatMessage chatMessage = new ChatMessage(messageText, currentDateandTime, false);
             messages.add(chatMessage);
-
-            myAdapter.notifyItemInserted(messages.size()- 1);
-            binding.textInput.setText("");
+            binding.messageEntered.setText("");
+            Executor thread = Executors.newSingleThreadExecutor();
+            thread.execute(() -> {
+                mDAO.insertMessage(chatMessage);
+            });
+            myAdapter.notifyItemInserted(messages.size() - 1);
         });
 
         binding.recyclerView.setAdapter(myAdapter = new RecyclerView.Adapter<MyRowHolder>() {
@@ -126,52 +133,41 @@ public class ChatRoom extends AppCompatActivity {
     private void showDeleteConfirmationDialog(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Message");
-        builder.setMessage("Do you want to delete this message?");
+        builder.setMessage("Do you wish to delete this message: " + TextMessageNotify);
         builder.setPositiveButton("Yes", (dialog, which) -> {
-            // Delete message from list and database
-            deleteMessage(position);
+            ChatMessage deletedMessage = messages.get(position); // Make a copy
+            messages.remove(position);
+            myAdapter.notifyItemRemoved(position);
 
-            // Show Snackbar with undo option
-            showUndoSnackbar(position);
+            Executor thread = Executors.newSingleThreadExecutor();
+            thread.execute(() -> {
+                mDAO.deleteMessage(mDAO.getAllMessages().get(position));
+            });
+            Snackbar.make(binding.getRoot(), "Message deleted " + position, Snackbar.LENGTH_LONG)
+                    .setAction("Undo", v -> {
+                        // Use the copy to undo the deletion
+                        messages.add(position, deletedMessage);
+                        myAdapter.notifyItemInserted(position);
+                        Executor thread2 = Executors.newSingleThreadExecutor();
+                        thread2.execute(() -> {
+                            mDAO.insertMessage(deletedMessage);
+                        });
+
+                    })
+                    .show();
         });
         builder.setNegativeButton("No", null);
-        builder.show();
+        builder.create().show();
     }
 
-    // Method to delete a message
-    private void deleteMessage(int position) {
-        ChatMessage deletedMessage = messages.remove(position);
-        myAdapter.notifyItemRemoved(position);
 
-        // Delete message from the database
-        // Make sure you have a reference to your ChatMessageDAO (mDAO) for database operations
-        // mDAO.delete(deletedMessage);
-    }
 
-    // Method to show Snackbar with undo option
-    private void showUndoSnackbar(int position) {
-        Snackbar.make(binding.getRoot(), "Message deleted", Snackbar.LENGTH_LONG)
-                .setAction("Undo", v -> {
-                    // Undo the deletion by re-inserting the message
-                    undoDelete(position);
-                })
-                .show();
-    }
-
-    // Method to undo the deletion
-    private void undoDelete(int position) {
-        ChatMessage undoMessage = messages.get(position);
-        messages.add(position, undoMessage);
-        myAdapter.notifyItemInserted(position);
-
-        // Insert the message back into the database
-        // Make sure you have a reference to your ChatMessageDAO (mDAO) for database operations
-        // mDAO.insert(undoMessage);
-    }
 
     class MyRowHolder extends RecyclerView.ViewHolder {
         private SentMessageBinding sentMessageBinding;
         private ReceiveMessageBinding receiveMessageBinding;
+
+
 
         public MyRowHolder(SentMessageBinding sentMessageBinding) {
             super(sentMessageBinding.getRoot());
