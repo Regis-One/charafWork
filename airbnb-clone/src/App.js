@@ -6,15 +6,19 @@ import Places from "./components/Places"
 function App() {
   const cardElements = Places.map(place => {
     return <Card country = {place.country} rating = {place.rating} img = {place.img} 
-            number_reviews = {place.number_reviews} price = {place.price} open_spots = {place.open_spots}/>
+            number_reviews = {place.number_reviews} price = {place.price} open_spots = {place.open_spots}
+            />
+            
   })
   return (
     <div >
            <Navbar />
            <Hero/>
-    <div className="cards_list">
-          {cardElements}
-    </div>
+      <div className="cards_list">
+            {cardElements}      
+      </div>
+      <footer>Made by Charaf IDRISSI</footer>
+
   
     </div>
     

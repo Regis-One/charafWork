@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: top 0.3s;
+}
+
+#header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+#header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content {
+    margin-top: 100px; /* Adjust this margin to avoid content being hidden under the header */
+    padding: 20px;
+}

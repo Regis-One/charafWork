@@ -26,7 +26,7 @@ canvas.pack()
 
 # Create the paddles
 paddle_a = canvas.create_rectangle(
-    50,
+50,
     HEIGHT // 2 - PADDLE_HEIGHT // 2,
     50 + PADDLE_WIDTH,
     HEIGHT // 2 + PADDLE_HEIGHT // 2,
@@ -117,6 +117,7 @@ def paddle_collision(paddle):
     ball_coords = canvas.coords(ball)
     paddle_coords = canvas.coords(paddle)
     overlapping = canvas.find_overlapping(*paddle_coords)
+    print(ball in overlapping)
     return ball in overlapping
 
 
